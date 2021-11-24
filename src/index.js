@@ -1,5 +1,8 @@
 console.log(data);
-
+function play(audio) {
+    var audio = document.querySelector(audio);
+    audio.play();
+  }
 // WRITE YOUR CODE BELOW!
 
 const mainDogSectionEl = document.querySelector('.main__dog-section')
@@ -33,14 +36,18 @@ function createDogListItem(obj){
         const naughtyButtonEl = document.createElement('button')
         naughtyButtonEl.textContent=`${obj.isGoodDog?'Good dog!':'Bad dog!'}`
 
-        naughtyButtonEl.addEventListener('click',()=>{
+        naughtyButtonEl.addEventListener('click',(e)=>{
             
             if(naughtyButtonEl.textContent === 'Good dog!'){
                 naughtyButtonEl.textContent = 'Bad dog!'
                 naughtyPEl.innerHTML = `<em>Is naughty?</em> No!`
+                play('#audio1')
+
             }else {
                 naughtyButtonEl.textContent = 'Good dog!'
                 naughtyPEl.innerHTML =`<em>Is naughty?</em> Yes!`
+                play('#audio')
+
             }
         })
 
