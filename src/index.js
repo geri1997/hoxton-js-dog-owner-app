@@ -29,9 +29,20 @@ function createDogListItem(obj){
         
         //Naughty section
         const naughtyPEl = document.createElement('p')
-        naughtyPEl.innerHTML=`<em>Is naughty?</em> yes!`
+        naughtyPEl.innerHTML=`<em>Is naughty?</em> ${obj.isGoodDog?'Yes':'No'}!`
         const naughtyButtonEl = document.createElement('button')
-        naughtyButtonEl.textContent='Good dog!'
+        naughtyButtonEl.textContent=`${obj.isGoodDog?'Good dog!':'Bad dog!'}`
+
+        naughtyButtonEl.addEventListener('click',()=>{
+            
+            if(naughtyButtonEl.textContent === 'Good dog!'){
+                naughtyButtonEl.textContent = 'Bad dog!'
+                naughtyPEl.innerHTML = `<em>Is naughty?</em> No!`
+            }else {
+                naughtyButtonEl.textContent = 'Good dog!'
+                naughtyPEl.innerHTML =`<em>Is naughty?</em> Yes!`
+            }
+        })
 
         //Append
         mainDogSectionEl.append(h2El,dogImageEl,divDescriptionEl,naughtyPEl,naughtyButtonEl)
