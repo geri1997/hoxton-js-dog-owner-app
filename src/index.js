@@ -119,6 +119,8 @@ plusEl.addEventListener('click', (e)=>{
     <input type="submit" id="submit" name="submit" value="Let's add a dog!" class="form__button">`
 
 // const buttonEl = formEl.querySelector('input[type="submit"]')
+
+//I was feeling lazy so I didnt create the element and the text with textcontent but I added conditions that dont allow users to input < so they cant add js in there(hopefully).
 formEl.addEventListener('submit',(e)=>{
     e.preventDefault()
     if(document.querySelector('#name').value.includes('<')||document.querySelector('#image').value.includes('<')||document.querySelector('#bio').value.includes('<')||document.querySelector('#name').value.includes('`')||document.querySelector('#image').value.includes('`')||document.querySelector('#bio').value.includes('`')){
